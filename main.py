@@ -34,6 +34,33 @@ def iniciar_sesion():
 
 iniciar_sesion()
 
-probando la brach
+# Menú principal
+while True:
+    print("\n*** MENÚ ***")
+    print("1. Mostrar un libro")
+    print("2. Mostrar todos los libros")
+    print("3. Añadir un libro")
+    print("4. Eliminar un libro")
+    print("5. Editar un libro")
+    print("6. Salir")
+    print("7. Seleccionar otra opción")
 
+    opcion = input("Seleccione una opción: ")
 
+    if opcion == "1":
+        mostrar_libro()
+    elif opcion == "2":
+        mostrar_todos_los_libros()
+    elif opcion == "3":
+        agregar_libro()
+    elif opcion == "4":
+        eliminar_libro()
+    elif opcion == "5":
+        editar_libro()
+    elif opcion == "6":
+        print("¡Hasta luego!")
+        break
+    elif opcion == "7":
+        continue
+    else:
+        print("Opción no válida. Inténtalo de nuevo.")
