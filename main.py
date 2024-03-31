@@ -1,38 +1,32 @@
 
 
-usuarios = {}
-
 def registrar_usuario():
-    nombre_usuario = input("Ingrese un nombre de usuario: ")
-    contraseña = input("Ingrese una contraseña: ")
+  nombre_usuario = input("Ingrese un nombre de usuario: ")
+  contraseña = input("Ingrese una contraseña: ")
 
-   
-    if nombre_usuario in usuarios:
-        print("El nombre de usuario ya existe. Por favor, elija otro.")
-        return
+  with open("usuaris.txt", "a") as file:
+      file.write(f"{nombre_usuario},{contraseña}\n")
 
- 
-    usuarios[nombre_usuario] = contraseña
-    print("Usuario registrado exitosamente.")
-
-
-registrar_usuario()
-
+  print("Usuario registrado exitosamente.")
 
 
 def iniciar_sesion():
+  nombre_usuario = input("Ingrese su nombre de usuario: ")
+  contraseña = input("Ingrese su contraseña: ")
 
-    nombre_usuario = input("Ingrese su nombre de usuario: ")
-    contraseña = input("Ingrese su contraseña: ")
+  with open("usuaris.txt", "r") as file:
+      for line in file:
+          usuario, clave = line.strip().split(',')
+          if usuario == nombre_usuario and clave == contraseña:
+              print("Inicio de sesión exitoso. ¡Bienvenido,", nombre_usuario, "!")
+              return
 
-   
-    if nombre_usuario in usuarios and usuarios[nombre_usuario] == contraseña:
-        print("Inicio de sesión exitoso. ¡Bienvenido,", nombre_usuario, "!")
-    else:
-        print("Nombre de usuario o contraseña incorrectos.")
+  print("Nombre de usuario o contraseña incorrectos.")
 
 
+registrar_usuario()
 iniciar_sesion()
+
 
 # Menú principal
 while True:

@@ -1,0 +1,3 @@
+joan,contraseña123
+jordi, seguro2024
+alba, miSuperClave
