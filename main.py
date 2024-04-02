@@ -44,6 +44,13 @@ def agregar_libro():
                    
 agregar_libro()
 
+def eliminar_libro():
+    titulo = input("Introduce el título del libro que deseas eliminar: ")  
+    with open("Llibrest.txt", "r") as file:
+        lines = file.readlines()
+    with open("Llibrest.txt", "w") as file:
+        for line in lines:
+
 # Menú principal
 
 
