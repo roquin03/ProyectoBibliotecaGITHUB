@@ -19,7 +19,7 @@ iniciar_sesion()
 
 def mostrar_libro():
     titulo = input("Introduce el título del libro que deseas mostrar: ")
-    with open("Llibres.txt", "r") as file:
+    with open("Llibrest.txt", "r") as file:
         for line in file:
             guardado = line.strip().split(',')
             if guardado[0] == titulo: 
@@ -31,6 +31,8 @@ def mostrar_libro():
               break;
         else:
             print("El libro no está en la lista.")
+mostrar_libro()
+
 # Menú principal
 
 
@@ -63,5 +65,6 @@ while True:
     continue
   else:
     print("Opción no válida. Inténtalo de nuevo.")
+    
 
 
