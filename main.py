@@ -79,7 +79,35 @@ while True:
                     file.write(line)
     eliminar_libro()
   elif opcion == "5":
+    def editar_libro():
+        titulo = input("Introduce el título del libro que deseas editar: ")
+        with open("Llibrest.txt", "r") as file:
+            lines = file.readlines()
+
+        with open("Llibrest.txt", "w") as file:
+            for line in lines:
+                guardado = line.strip().split(',')
+                if guardado[0] == titulo:
+                    print("Libro encontrado:")
+                    print("Título:", guardado[0])
+                    print("Autores:", guardado[1])
+                    print("Año de Publicación:", guardado[2])
+                    print("Género:", guardado[3])
+                    print("ISBN:", guardado[4])
+
+                    nuevo_titulo = input("Introduce el nuevo título del libro: ")
+                    nuevos_autores = input("Introduce los nuevos autores del libro: ")
+                    nuevo_año_publicacion = input("Introduce el nuevo año de publicación del libro: ")
+                    nuevo_genero = input("Introduce el nuevo género del libro: ")
+                    nuevo_isbn = input("Introduce el nuevo ISBN del libro: ")
+
+                    
+                    line = f"{nuevo_titulo},{nuevos_autores},{nuevo_año_publicacion},{nuevo_genero},{nuevo_isbn}\n"
+                file.write(line)
+
     editar_libro()
+
+          
   elif opcion == "6":
     print("¡Hasta luego!")
     break
